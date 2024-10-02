@@ -33,14 +33,26 @@ function render(variables = {}) {
   document.querySelector("#widget_content").innerHTML = `<div class="widget">
             ${cover}
           <img src="${variables.avatarURL}" class="photo" />
-          <h1>${window.variables.name} ${window.variables.lastName}</h1>
-          <h2>${window.variables.role}</h2>
-          <h3>${window.variables.city} ${window.variables.country} </h3>
-          <ul class="${window.variables.socialMediaPosition}">
-            <li><a href="https://twitter.com/${window.variables.twitter}"><i class="fab fa-twitter"></i></a></li>
-            <li><a href="https://github.com/${window.variables.github}"><i class="fab fa-github"></i></a></li>
-            <li><a href="https://linkedin.com/${window.variables.linkedin}"><i class="fab fa-linkedin"></i></a></li>
-            <li><a href="https://instagram.com/${window.variables.instagram}"><i class="fab fa-instagram"></i></a></li>
+          <h1>${variables.name ? variables.name : "Name"} ${
+    variables.lastName ? variables.lastName : "Last name"
+  }</h1>
+          <h2>${variables.role ? variables.role : "Role"} </h2>
+          <h3>${variables.city ? variables.city : "City,"} ${
+    variables.country ? variables.country : "Country"
+  } </h3>
+          <ul class="${variables.socialMediaPosition}">
+            <li><a href="https://twitter.com/${
+              variables.twitter
+            }"><i class="fab fa-twitter"></i></a></li>
+            <li><a href="https://github.com/${
+              variables.github
+            }"><i class="fab fa-github"></i></a></li>
+            <li><a href="https://linkedin.com/${
+              variables.linkedin
+            }"><i class="fab fa-linkedin"></i></a></li>
+            <li><a href="https://instagram.com/${
+              variables.instagram
+            }"><i class="fab fa-instagram"></i></a></li>
           </ul>
         </div>
     `;
@@ -64,11 +76,11 @@ window.onload = function() {
     github: null,
     linkedin: null,
     instagram: null,
-    name: "null",
-    lastName: "null",
-    role: "null",
-    country: "null",
-    city: "null"
+    name: null,
+    lastName: null,
+    role: null,
+    country: null,
+    city: null
   };
   render(window.variables); // render the card for the first time
 
